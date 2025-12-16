@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My E-commerce Store</title>
+
+  <style>
+    /* ===== GENERAL STYLES ===== */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #bcb5b5;
+      color: #333;
+    }
+
+    header {
+      background-color: #faf2f2;
+      color: rgb(199, 16, 16);
+      padding: 2px 0;
+      text-align: center;
+      font-size: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #9472d7;
+      padding: 10px 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex: 1;
+    }
+
+    #user-greeting {
+      font-weight: bold;
+      color: #333;
+      white-space: nowrap;
+    }
+
+    #show-details-btn {
+      padding: 12px 12px;
+      border-radius: 4px;
+      background-color: #f0c14b;
+      color: #111;
+      font-weight: 500;
+      cursor: pointer;
+      border: 2px solid black;
+    }
+
+    /* SEARCH */
+    .search-box {
+      flex: 1;
+      max-width: 500px;
+    }
+
+    #search-input {
+      width: 100%;
+      padding: 10px 16px;
+      border: 1px solid #1d1717;
+      border-radius: 25px;
+      font-size: 14px;
+    }
+
+    /* RIGHT NAV */
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* LINKS */
+    nav a {
+      text-decoration: none;
+      color: #161010;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      background-color: #f0c14b;
+    }
+
+    /* CART */
+    #cart {
+      position: relative;
+      background-color: #5cc517;
+      border: 2px solid black;
+    }
+
+    #cart-count {
+      background-color: #f08804;
+      color: rgb(230, 223, 223);
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: 50%;
+      position: absolute;
+      top: -5px;
+      right: -8px;
+    }
+
+    /* BUTTON COLORS */
+    #login-link {
+      background-color: #e74c3c;
+      border: 2px solid black;
+    }
+
+    #register-link {
+      background-color: #c6559b;
+      border: 2px solid black;
+    }
+
+    #logout-link {
+      background-color: #e74c3c;
+      border: 2px solid black;
+    }
+
+    #admin-link {
+      background-color: #c6559b;
+      border: 2px solid black;
+    }
+
+    #order {
+      background-color: #c6bb1a;
+      border: 2px solid black;
+    }
+
+    /* ===== PRODUCT GRID ===== */
+    #product-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .product-card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .product-card h4 {
+      margin: 5px 0;
+      font-size: 16px;
+    }
+
+    .product-card p {
+      margin: 5px 0;
+      color: #555;
+      font-weight: bold;
+    }
+
+    /* ===== RESTORED VIEW PRODUCT BUTTON (ORIGINAL) ===== */
+    .product-card .view-product-btn {
+      display: inline-block;
+      padding: 2px 10px;
+      margin: 3px auto 6px;
+      font-size: 13px;
+      font-weight: 500;
+      background-color: #ece7e7;
+      color: #000;
+      border: 1.5px solid #000;
+      border-radius: 3px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    .product-card .view-product-btn:hover {
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* ================= MOBILE RESPONSIVE (NO HIDING) ================= */
+    @media (max-width: 768px) {
+
+      nav {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .nav-left {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 8px;
+      }
+
+      .search-box {
+        width: 100%;
+      }
+
+      /* KEEP NAV-RIGHT VISIBLE */
+      .nav-right {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-right a {
+        font-size: 14px;
+        padding: 8px 10px;
+      }
+
+      #product-list {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        padding: 12px;
+        gap: 12px;
+      }
+
+      .product-card img {
+        height: 150px;
+      }
+    }
+
+    /* EXTRA SMALL PHONES */
+    @media (max-width: 480px) {
+      header {
+        font-size: 1.4rem;
+      }
+
+      .product-card img {
+        height: 130px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>My E-commerce Store</h1>
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-left">
+      <span id="user-greeting">Hello, User</span>
+      <button id="show-details-btn" style="display:none;">View Details</button>
+
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Search products by name..." />
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <a href="cart.html" id="cart">Cart <span id="cart-count">0</span></a>
+      <a href="orders.html" id="order">Orders</a>
+      <a href="login.html" id="login-link">Login</a>
+      <a href="register.html" id="register-link">Register</a>
+      <a href="#" id="logout-link" style="display:none;">Logout</a>
+      <a href="admin/dashboard.html" id="admin-link">Admin Dashboard</a>
+    </div>
+  </nav>
+
+  <!-- USER DETAILS -->
+  <div id="user-details" style="display:none;">
+    <h3>My Profile</h3>
+    <p><strong>Name:</strong> <span id="user-name"></span></p>
+    <p><strong>Email:</strong> <span id="user-email"></span></p>
+    <p><strong>Role:</strong> <span id="user-role"></span></p>
+  </div>
+
+  <!-- PRODUCT LIST -->
+  <div id="product-list" class="products"></div>
+
+  <script src="js/index.js"></script>
+
+</body>
+
+</html>

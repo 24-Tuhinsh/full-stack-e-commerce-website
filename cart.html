@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ===== CART PAGE ===== */
+
+h2 {
+  text-align: center;
+  margin-top: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px auto;
+  background-color: #fff;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 14px;
+}
+
+thead {
+  background-color: #9472d7;
+}
+
+/* Checkout button */
+#checkout-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: #5cc517;
+  border: 2px solid black;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+
+  table, thead, tbody, th, td, tr, tfoot {
+    display: block;
+    width: 100%;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody tr {
+    margin-bottom: 15px;
+    border: 2px solid #9472d7;
+    border-radius: 6px;
+    padding: 10px;
+    background-color: #fff;
+  }
+
+  tbody td {
+    text-align: left;
+    border: none;
+    border-bottom: 1px solid #eee;
+    padding: 8px 10px;
+    position: relative;
+    padding-left: 45%;
+  }
+
+  tbody td:last-child {
+    border-bottom: none;
+  }
+
+  /* Labels */
+  tbody td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    font-weight: bold;
+    color: #333;
+    width: 40%;
+  }
+
+  /* FOOTER (Address / Phone / Total) */
+  tfoot tr {
+    border: 2px solid #9472d7;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+  }
+
+  tfoot td {
+    border: none;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tfoot input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  /* Checkout button full width */
+  #checkout-btn {
+    width: 90%;
+    font-size: 18px;
+  }
+}
+
+  </style>
+</head>
+<body>
+<p><a href="index.html" style="text-decoration:none; color:#3498db;">&larr; Back to Home</a></p>
+<h2>Your Cart</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Price</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody id="cart-items"></tbody>
+
+  <!-- ✅ ADDED: Address -->
+  <tfoot>
+    <tr>
+      <td colspan="3">
+        <input
+          type="text"
+          id="address"
+          placeholder="Enter delivery address"
+          style="width:100%; padding:8px;"
+          required
+        >
+      </td>
+    </tr>
+
+    <!-- ✅ ADDED: Phone -->
+    <tr>
+      <td colspan="3">
+        <input
+          type="tel"
+          id="phone"
+          placeholder="Enter phone number"
+          style="width:100%; padding:8px;"
+          required
+        >
+      </td>
+    </tr>
+
+    <!-- ✅ ADDED: Total Price -->
+    <tr>
+      <td colspan="3">
+        <strong>Total: $<span id="total-price">0</span></strong>
+      </td>
+    </tr>
+  </tfoot>
+</table>
+
+<!-- ❌ UNCHANGED -->
+<button id="checkout-btn">Place Order</button>
+
+<!-- ❌ UNCHANGED -->
+<script src="js/cart.js"></script>
+
+</body>
+</html>

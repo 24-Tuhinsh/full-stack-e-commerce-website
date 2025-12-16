@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ===== ORDERS PAGE ===== */
+
+h2 {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* TABLE BASE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px auto;
+  background-color: #fff;
+}
+
+thead {
+  background-color: #9472d7;
+  color: #000;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* ===== MOBILE RESPONSIVE TABLE ===== */
+@media (max-width: 768px) {
+
+  table, thead, tbody, th, td, tr {
+    display: block;
+    width: 100%;
+  }
+
+  thead {
+    display: none; /* hide table header */
+  }
+
+  tr {
+    margin-bottom: 15px;
+    border: 2px solid #9472d7;
+    border-radius: 6px;
+    padding: 10px;
+    background-color: #fff;
+  }
+
+  td {
+    text-align: left;
+    padding: 8px 10px;
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 45%;
+    font-size: 14px;
+  }
+
+  td:last-child {
+    border-bottom: none;
+  }
+
+  /* Labels */
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    font-weight: bold;
+    color: #333;
+    width: 40%;
+    white-space: nowrap;
+  }
+}
+
+  </style>
+</head>
+<body>
+<p><a href="index.html" style="text-decoration:none; color:#3498db;">&larr; Back to Home</a></p>
+<h2>Your Orders</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Order ID</th>
+      <th>Items</th>
+      <th>Total Price</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Status</th>
+      <th>Action</th> 
+    </tr>
+  </thead>
+  <tbody id="orders-list"></tbody>
+</table>
+
+<script src="js/orders.js"></script>
+</body>
+</html>

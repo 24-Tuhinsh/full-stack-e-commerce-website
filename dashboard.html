@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+
+  <style>
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    /* ===== PAGE LAYOUT ===== */
+    body {
+      background: #f4f6f9;
+      padding: 30px;
+      color: #333;
+    }
+
+    /* ===== HEADINGS ===== */
+    h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      margin: 25px 0 10px;
+      font-size: 20px;
+      color: #444;
+    }
+
+    /* ===== LOGOUT BUTTON ===== */
+    #logout-btn {
+      background: #e74c3c;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    #logout-btn:hover {
+      background: #c0392b;
+    }
+
+    /* ===== FORM STYLING ===== */
+    form {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    form input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    form input:focus {
+      outline: none;
+      border-color: #3498db;
+    }
+
+    /* ===== ADD BUTTON ===== */
+    form button {
+      width: 100%;
+      background: #3498db;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    form button:hover {
+      background: #2980b9;
+    }
+
+    /* ===== TABLE ===== */
+    table {
+      width: 100%;
+      margin-top: 15px;
+      border-collapse: collapse;
+      background: #ffffff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    thead {
+      background: #2c3e50;
+      color: white;
+    }
+
+    th,
+    td {
+      padding: 14px;
+      text-align: left;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid #eee;
+    }
+
+    tbody tr:hover {
+      background: #f9fbfd;
+    }
+
+    /* ===== PRODUCT IMAGE ===== */
+    td img {
+      border-radius: 6px;
+      border: 1px solid #ddd;
+    }
+
+    /* ===== ACTION BUTTONS ===== */
+    .actions button {
+      margin-right: 12px;
+    }
+
+    .edit-btn {
+      background: #f1c40f;
+      color: #000;
+    }
+
+    .edit-btn:hover {
+      background: #d4ac0d;
+    }
+
+    .delete-btn {
+      background: #e74c3c;
+      color: white;
+    }
+
+    .delete-btn:hover {
+      background: #c0392b;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      body {
+        padding: 15px;
+      }
+
+      form {
+        width: 100%;
+      }
+
+      table {
+        font-size: 14px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <h2>Admin Dashboard</h2>
+  <button id="logout-btn">Logout</button>
+
+  <h3>Add New Product</h3>
+  <form id="add-product-form">
+    <input type="text" id="description" placeholder="Product Description" required />
+    <input type="text" id="name" placeholder="Product Name" required />
+    <input type="number" id="price" placeholder="Price" required />
+    <input type="text" id="image" placeholder="Image URL" required />
+    <button type="submit">Add Product</button>
+  </form>
+
+  <h3>Existing Products</h3>
+
+  <!-- ===== SEARCH BAR ===== -->
+  <div style="margin-bottom: 15px;">
+    <input type="text" id="search-input" placeholder="Search products by name or description..."
+      style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc;" />
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="product-list"></tbody>
+  </table>
+
+  <script src="js/adminDashboard.js"></script>
+</body>
+
+</html>

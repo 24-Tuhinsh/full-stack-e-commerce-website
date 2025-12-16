@@ -69,7 +69,10 @@ Role-based access control
 📌 Project Type
 
 Full Stack Web Application
-
+For ruuning It :
+use VS Code
+backend ->In Terminal ->cd backend->node server.js
+frontend->Use Live Server from index.html in Frontend
 👨‍💻 Author
 
 Tuhinsh Sharma
